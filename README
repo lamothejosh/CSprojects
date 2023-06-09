@@ -1,0 +1,163 @@
+(A) The title of the homework and the author’s name 
+
+     MetroSim by Josh Lamothe 
+     7/4/2022
+
+(B) The purpose of the program.
+
+     The purpose of this program is to create a simulation of the 
+     MBTA green line in Boston. This simulation adds and removes
+      passengers with the FIFO method
+
+(C) Acknowledgements for any help you received.
+
+     I recieved help from Professor Sheldon and his video lectures
+    I also recieved help from Professor Allen and his Lab04 and lab 5
+    I had help from CS11 hw 6 on reading in files
+     I had help from all the TAs and David (the ACE++ instructor)
+
+
+
+Compile/run:
+     - Compile using
+            make MetroSim
+     - run executable with
+            ./MetroSim stationsFile outputFile [commands]
+
+
+Files: 
+
+main.cpp:
+     this is the driver file that creates a metro sim instance and also runs 
+     metrosim. main which is the driver inside of metro sim
+
+MetroSim.cpp:
+     Implementation of MetroSim class.  Main
+     functionality of running the Metro Simulation, it
+     move trains and deal with passengers going on/off the train.
+
+MetroSim.h:
+     Interface of MetroSim class.
+
+stations.txt:
+     an example file containing a list of stations.
+
+testst.txt:
+     file used for testing, 5 stations created, allows for faster testing
+
+test_commands.txt:
+     sample list of commands that you could give to the simulator
+
+command.txt:
+     file used for testing, contains commands for the train
+
+the_metroSim:
+     reference implementation for students to see how
+     the program works
+
+Passenger.cpp:
+     implementation of the passenger struct 
+
+Passenger.h:
+     interface of the passenger struct 
+
+PassengerQueue.cpp:
+     implementation of the passengerqueue class
+
+PassengerQueue.h:
+     interface of the passengerqueue class
+
+Makefile:
+     Compiles and links all necessary files for Metro Sim
+
+
+
+Data Structures:
+
+     In this project the data structure I chose to use was vectors
+     Vectors are very similar to array list, however you do not have to 
+     resize mannually which is extremely helpful. Another benefit of the vector
+     is that you are able to access specific indexes through the [] operator
+     which makes accessing different indexes a lot easier.
+     At the beginning I was using the queue data structure which was nearly 
+     perfect, however accessing different indexes of the queue was 
+     a lot more difficult which is what led me to using the vector structure.
+     Vectors had functions that allowed me to add new passengers to the back
+     and remove old passengers from the front which was perfect for this 
+     assignment
+
+     the time complexity of accessing elements in the vector was a lot faster
+     that looping through the queue and stopping where it was needed. 
+     This vectors to be a lot more efficient in accessing passenger queues
+     which was something done often in this project.
+
+
+
+Testing:
+
+In order to test a lot was done ,because there was a lot of debugging with 
+this project
+
+
+unit test were made to test the passengers and passenger queue
+     here two test were created
+     one testing printing a singular passenger
+     the other made a passenger queue of size 2 and printed it out
+     both worked properly which allowed me to move to the next phase
+
+two functions were made to test the two vectors that held information
+read in from the files
+
+station test and command test were both testing functions that I used to make sure
+the vectors of strings were holding the right things
+in these functions the vectors were printed in the output file
+this allowed for the output file to be tested along with the vectors containing
+information from the files.
+
+I also made two new .txt files to test my metro sim
+     testst.txt is a file containing 5 stations
+     these five stations were a couple of my friends housing and they allowed 
+     me to see how my metrosim was working compared to the refernce version
+     having only 5 stations allowed for me to see what happens when the 
+     train goes back to the top.
+     Having less stations made everything more clear so this was a great way 
+     to test 
+
+     command.txt was a command file used to test how my program reacted to 
+     different commands. here I did multiple versions of commands
+     i made the file empty to see what my program would do and I tested edge 
+     cases like adding a passenger to a station out of range
+     I removed the commands that cause errors so that I could compare outputs
+     with the reference version
+
+The main way I tested was through diff testing. Diff testing the outputs of 
+the reference along with my own allowed me to find the bugs in my code
+I made two output files, one for the reference and one of my own version
+One huge problem was people were geting off at the right stations but in 
+the wrong order. this was fixed because for some reason I was converting the 
+strings into integers improperly ,but diff testing allowed me to see where
+the differences were which helped a lot.
+
+overall just comparing what the reference had to what mine was doing by 
+inputting the same commands was a very effective way to test my code
+
+
+Part that you found most difficult:
+
+
+Honesty I had the most difficulty with using the autograder.
+ It wasn't very friendly to someone learning how to improve their code. 
+ It was very hard to understand what was going wrong with my code
+and what test I was failing.
+
+autograder test like "no mf empty command" are not very specific on what is 
+wrong with your code
+
+a lot of time I was under the assumption that something wasn't working properly
+when in fact i was simply missing a "Command? " and not getting proper 
+feedback on that causes me to fix something that was already working and 
+break the code I had that already worked. this causes me to further
+increase the time i spent debugging this project.
+
+this project took me 35 hours.
+
